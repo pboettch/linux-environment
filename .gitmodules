@@ -1,0 +1,6 @@
+[submodule "file-line"]
+	path = file-line
+	url = https://github.com/bogado/file-line.git
+[submodule "bufexplorer"]
+	path = bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
