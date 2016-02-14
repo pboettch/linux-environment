@@ -36,8 +36,6 @@ set hlsearch
 
 " Debian uses compressed helpfiles. We must inform vim that the main
 " helpfiles is compressed. Other helpfiles are stated in the tags-file.
-set helpfile=$VIMRUNTIME/doc/help.txt.gz
-
 set wildmode=longest:full
 set wildmenu
 
@@ -53,8 +51,6 @@ augroup END
 "let redcode_88_only = 1
 "let redcode_94_only = 1
 let redcode_highlight_numbers=1
-
-
 
 " The following are commented out as they cause vim to behave a lot
 " different from regular vi. They are highly recommended though.
@@ -79,26 +75,27 @@ autocmd BufWritePre    * :call TrimWhiteSpace()
 map  <F3>  :call TrimWhiteSpace()<CR>
 map! <F3>  :call TrimWhiteSpace()<CR>
 
-
 " Now we set some defaults for the editor
 set noautoindent      " always set autoindenting on
 set nosmartindent     "
-set shiftwidth=4
 set smarttab
 
 set noexpandtab
-set ts=4
-map <F2> :w<CR>
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+set cinoptions=:0,l1,g0,N-s,t0,(0,U1
+set cindent
+
+
 map <C-J> :set textwidth=70<CR><ESC>gqap:set textwidth=0<CR>
 map! <C-J> <ESC>gqapi
 set nowrap
 
-"set nocindent
-set cinwords=if,else,while,do,for,switch,case
-set cinoptions=:0,g0,l1
-set cindent
-
-map <C-T>     :tabnew<CR>
+" tab-navigation
 map <s-Left>  :tabprev<CR>
 map <s-Right> :tabnext<CR>
 imap <s-Left>  <ESC>:tabprev<CR>i<Right>
@@ -115,7 +112,6 @@ map <F5> :tabfirst<CR>:make<CR>:cw<CR>
 map <F6> :cp<CR>
 map <F7> :cn<CR>
 
-map tk :set shiftwidth=4 ts=4 noet<CR>
 
 map tn :tabnew<SPACE>
 
@@ -135,7 +131,6 @@ if has("autocmd")
 		\   exe "normal g`\"" |
 		\ endif
 endif " has("autocmd")
-
 
 func GitGrep(...)
    let save = &grepprg
