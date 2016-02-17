@@ -76,25 +76,25 @@ map  <F3>  :call TrimWhiteSpace()<CR>
 map! <F3>  :call TrimWhiteSpace()<CR>
 
 " Now we set some defaults for the editor
-set noautoindent      " always set autoindenting on
-set nosmartindent     "
-set smarttab
-
 set noexpandtab
-set copyindent
-set preserveindent
+set nocopyindent
+set nopreserveindent
+set nosmartindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 
-set cinoptions=:0,l1,g0,N-s,t0,(0,U1
 set cindent
+set cinoptions=:0,l1,g0,N-s,t0,(0,U0,i0,u0
+
+set smarttab
+
+let g:clang_format#command = "clang-format-3.7"
+"let g:clang_format#auto_formatexpr = 1
+autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
 
-map <C-J> :set textwidth=70<CR><ESC>gqap:set textwidth=0<CR>
-map! <C-J> <ESC>gqapi
 set nowrap
-
 " tab-navigation
 map <s-Left>  :tabprev<CR>
 map <s-Right> :tabnext<CR>
@@ -111,7 +111,6 @@ let errormarker_warningtypes = "wW"
 map <F5> :tabfirst<CR>:make<CR>:cw<CR>
 map <F6> :cp<CR>
 map <F7> :cn<CR>
-
 
 map tn :tabnew<SPACE>
 
