@@ -154,3 +154,7 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 
 " remove Print-button
 :aunmenu ToolBar.Print
+
+" clang-complete
+let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+let g:clang_auto_user_options='compile_commands.json, path'

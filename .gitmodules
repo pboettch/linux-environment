@@ -13,3 +13,9 @@
 [submodule "vim-operator-user"]
 	path = vim-operator-user
 	url = https://github.com/kana/vim-operator-user.git
+[submodule "vim-cpp-enhanced-highlight"]
+	path = vim-cpp-enhanced-highlight
+	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+[submodule "clang_complete"]
+	path = clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
