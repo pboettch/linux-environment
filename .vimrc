@@ -93,6 +93,8 @@ let g:clang_format#command = "clang-format-3.7"
 "let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
+" have different indent-stype per filetype
+filetype plugin indent on
 
 set nowrap
 " tab-navigation
