@@ -19,3 +19,6 @@
 [submodule "clang_complete"]
 	path = clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "vim-cmake-syntax"]
+	path = vim-cmake-syntax
+	url = https://github.com/pboettch/vim-cmake-syntax.git
