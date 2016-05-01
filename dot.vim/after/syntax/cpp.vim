@@ -1,0 +1,1 @@
+../../../vim-cpp-enhanced-highlight/after/syntax/cpp.vim

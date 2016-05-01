@@ -1,0 +1,1 @@
+../../vim-cmake-syntax/syntax/cmake.vim

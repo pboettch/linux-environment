@@ -89,14 +89,11 @@ set cinoptions=:0,l1,g0,N-s,t0,(0,U0,i0,u0
 
 set smarttab
 
-let g:clang_format#command = "clang-format-3.7"
-"let g:clang_format#auto_formatexpr = 1
-autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
+set nowrap
 
 " have different indent-stype per filetype
 filetype plugin indent on
 
-set nowrap
 " tab-navigation
 map <s-Left>  :tabprev<CR>
 map <s-Right> :tabnext<CR>
@@ -157,6 +154,13 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 " remove Print-button
 :aunmenu ToolBar.Print
 
+" clang-format
+let g:clang_format#command = "clang-format-3.7"
+"let g:clang_format#auto_formatexpr = 1
+autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
+
 " clang-complete
 let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
 let g:clang_auto_user_options='compile_commands.json, path'
+" let g:clang_complete_copen=1
+" let g:clang_periodic_quickfix=1
