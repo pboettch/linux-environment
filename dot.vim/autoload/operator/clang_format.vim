@@ -1,0 +1,1 @@
+../../../vim-clang-format/autoload/operator/clang_format.vim
