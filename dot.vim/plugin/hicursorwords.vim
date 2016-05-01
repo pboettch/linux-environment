@@ -1,1 +1,1 @@
-/home/pboettch/devel/tools/linux-environment/hicursorwords.vim
+../../hicursorwords.vim
