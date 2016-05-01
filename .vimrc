@@ -155,7 +155,7 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 :aunmenu ToolBar.Print
 
 " clang-format
-let g:clang_format#command = "clang-format-3.7"
+let g:clang_format#command = "clang-format-3.8"
 "let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
