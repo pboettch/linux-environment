@@ -1,0 +1,7 @@
+dot.vim/.VimballRecord
+dot.vim/bin/
+dot.vim/doc/
+dot.vim/plugin/clang/
+dot.vim/plugin/clang_complete.vim
+dot.vim/plugin/libclang.py
+dot.vim/plugin/snippets/
