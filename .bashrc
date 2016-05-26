@@ -123,4 +123,4 @@ fi
 PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
 export PAGER=less
-
+export PATH=$HOME/.local/bin:$PATH
