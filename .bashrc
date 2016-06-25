@@ -98,7 +98,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias vi=gvim
+alias rt="screen -r"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -125,3 +125,15 @@ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
 export PAGER=less
 export PATH=$HOME/.local/bin:$PATH
+
+
+export EDITOR=vi
+
+if [ -e /usr/bin/gvim ]; then
+    alias vi=gvim
+fi
+
+if [ $TERM != "xterm" ]
+then
+	setterm --blength 0
+fi
