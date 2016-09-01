@@ -162,7 +162,7 @@ let g:clang_format#command = "clang-format-3.8"
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
 " clang-complete
-let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-let g:clang_auto_user_options='compile_commands.json, path'
+" let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+" #let g:clang_auto_user_options='compile_commands.json, path'
 " let g:clang_complete_copen=1
 " let g:clang_periodic_quickfix=1
