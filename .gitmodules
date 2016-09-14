@@ -22,3 +22,6 @@
 [submodule "vim-cmake-syntax"]
 	path = vim-cmake-syntax
 	url = https://github.com/pboettch/vim-cmake-syntax.git
+[submodule "bash-git-prompt"]
+	path = bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
