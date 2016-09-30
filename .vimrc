@@ -166,3 +166,5 @@ autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 " #let g:clang_auto_user_options='compile_commands.json, path'
 " let g:clang_complete_copen=1
 " let g:clang_periodic_quickfix=1
+
+execute pathogen#infect()
