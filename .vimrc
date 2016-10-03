@@ -100,8 +100,8 @@ map <s-Right> :tabnext<CR>
 imap <s-Left>  <ESC>:tabprev<CR>i<Right>
 imap <s-Right> <ESC>:tabnext<CR>i<Right>
 
-noremap <silent> <C-s-Left>  :exe "silent! tabmove " . (tabpagenr() - 2)<CR>
-noremap <silent> <C-s-Right> :exe "silent! tabmove " . tabpagenr()<CR>
+noremap <silent> <C-S-Left>  :exe "silent! tabmove " . (tabpagenr() - 2)<CR>
+noremap <silent> <C-S-Right> :exe "silent! tabmove " . (tabpagenr() + 1)<CR>
 
 " error/quickfix
 let &errorformat="%f:%l: %t%*[^:]:%m," . &errorformat
