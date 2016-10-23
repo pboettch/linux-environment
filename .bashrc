@@ -139,12 +139,13 @@ fi
 REALPWD=$(dirname $(realpath ${BASH_SOURCE[0]}))
 
 # set a fancy prompt
-#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\n\$ '
 
 # git prompt
-GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
-GIT_PROMPT_END='\n\$ '
-GIT_PROMPT_ONLY_IN_REPO=0
+#GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
+#GIT_PROMPT_END='\n\$ '
+#GIT_PROMPT_ONLY_IN_REPO=0
+#GIT_PROMPT_FETCH_REMOTE_STATUS=0
 #GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0
 #GIT_PROMPT_SHOW_UNTRACKED_FILES=no
-source $REALPWD/bash-git-prompt/gitprompt.sh
+#source $REALPWD/bash-git-prompt/gitprompt.sh
