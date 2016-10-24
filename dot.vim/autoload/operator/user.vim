@@ -1,1 +1,0 @@
-../../../vim-operator-user/autoload/operator/user.vim
