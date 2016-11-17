@@ -61,19 +61,13 @@ let redcode_highlight_numbers=1
 set autowrite		" Automatically save before commands like :next and :make
 
 " Removes trailing spaces
-function TrimWhiteSpace()
-: %s/\s*$//
-: ''
-:endfunction
+command! TrimWhiteSpace :%s/\s\+$//e
 
 "set list listchars=trail:.,extends:>
-autocmd FileWritePre   * :call TrimWhiteSpace()
-autocmd FileAppendPre  * :call TrimWhiteSpace()
-autocmd FilterWritePre * :call TrimWhiteSpace()
-autocmd BufWritePre    * :call TrimWhiteSpace()
-
-map  <F3>  :call TrimWhiteSpace()<CR>
-map! <F3>  :call TrimWhiteSpace()<CR>
+autocmd FileWritePre   * :TrimWhiteSpace
+autocmd FileAppendPre  * :TrimWhiteSpace
+autocmd FilterWritePre * :TrimWhiteSpace
+autocmd BufWritePre    * :TrimWhiteSpace
 
 " Now we set some defaults for the editor
 set noexpandtab
