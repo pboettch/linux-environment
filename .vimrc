@@ -168,7 +168,7 @@ autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 " let g:clang_periodic_quickfix=1
 
 " for hicursorwords
-let g:HiCursorWords_style='term=reverse cterm=reverse gui=reverse'
-"let g:HiCursorWords_linkStyle='VisualNOS'
+"let g:HiCursorWords_style='term=reverse cterm=reverse gui=reverse'
+let g:HiCursorWords_linkStyle='VisualNOS'
 
 execute pathogen#infect()
