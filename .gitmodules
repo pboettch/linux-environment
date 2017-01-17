@@ -31,3 +31,6 @@
 [submodule "dot.vim/bundle/vim-highlight-cursor-words"]
 	path = dot.vim/bundle/vim-highlight-cursor-words
 	url = https://github.com/pboettch/vim-highlight-cursor-words.git
+[submodule "dot.vim/bundle/vim-json"]
+	path = dot.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
