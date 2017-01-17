@@ -149,6 +149,7 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 
 " remove Print-button
 :aunmenu ToolBar.Print
+colorscheme desert
 
 " clang-format
 let g:clang_format#command = "clang-format-3.8"
