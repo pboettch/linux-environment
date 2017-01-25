@@ -124,14 +124,13 @@ fi
 export PAGER=less
 export PATH=$HOME/.local/bin:$PATH
 
-
 export EDITOR=vi
 
 if [ -e /usr/bin/gvim ]; then
     alias vi=gvim
 fi
 
-if [ $TERM != "xterm" ]
+if [[ $TERM != xterm* ]]
 then
 	setterm --blength 0
 fi
