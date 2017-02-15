@@ -149,6 +149,8 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 
 " remove Print-button
 :aunmenu ToolBar.Print
+" remove help-button, it's too big
+:aunmenu ToolBar.Help
 colorscheme desert
 
 " clang-format
