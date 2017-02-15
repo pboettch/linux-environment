@@ -130,7 +130,7 @@ if [ -e /usr/bin/gvim ]; then
     alias vi=gvim
 fi
 
-if [[ $TERM != xterm* ]]
+if [[ ! $TERM =~ "xterm" ]]
 then
 	setterm --blength 0
 fi
