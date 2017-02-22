@@ -142,7 +142,7 @@ NORM='\[\033[00m\]'
 BLUE='\[\033[01;34m\]'
 
 # set a fancy prompt
-PS1="${debian_chroot:+($debian_chroot)}$GREEN\u@\h$NORM:$BLUE\w$NORM$(__git_ps1 ' (%s)')\n\$ "
+PS1='${debian_chroot:+($debian_chroot)}'$GREEN'\u@\h'$NORM':'$BLUE'\w'$NORM'$(__git_ps1 " (%s)")\n\$ '
 
 # git prompt
 #GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
