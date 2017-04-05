@@ -41,11 +41,11 @@ set wildmenu
 
 " Some Debian-specific things
 augroup filetype
-au BufRead reportbug.*		set ft=mail
-au BufRead reportbug-*		set ft=mail
-au BufRead *.sql            set ft=mysql
-au BufRead *.tpl            set ft=smarty
-au BufRead *.red            set ft=redcode
+  au BufRead,BufNewFile reportbug.*	set filetype=mail
+  au BufRead,BufNewFile reportbug-*	set filetype=mail
+  au BufRead,BufNewFile *.sql       set filetype=mysql
+  au BufRead,BufNewFile *.tpl       set filetype=smarty
+  au BufRead,BufNewFile *.red       set filetype=redcode
 augroup END
 
 "let redcode_88_only = 1
