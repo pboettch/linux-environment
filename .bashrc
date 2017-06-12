@@ -143,6 +143,8 @@ BLUE='\[\033[01;34m\]'
 
 # set a fancy prompt
 PS1='${debian_chroot:+($debian_chroot)}'$GREEN'\u@\h'$NORM':'$BLUE'\w'$NORM'$(__git_ps1 " (%s)")\n\$ '
+# print shell title: last 20 characters of $PWD
+export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
 
 # git prompt
 #GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
