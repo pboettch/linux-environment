@@ -56,22 +56,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -137,14 +121,24 @@ fi
 
 REALPWD=$(dirname $(realpath ${BASH_SOURCE[0]}))
 
-GREEN='\[\033[01;32m\]'
+GREEN='\[\033[32m\]'
+WHITE='\[\033[37m\]'
+WHITEBG='\[\033[47m\]'
 NORM='\[\033[00m\]'
-BLUE='\[\033[01;34m\]'
+BLUE='\[\033[34m\]'
 
 # set a fancy prompt
-PS1='${debian_chroot:+($debian_chroot)}'$GREEN'\u@\h'$NORM':'$BLUE'\w'$NORM'$(__git_ps1 " (%s)")\n\$ '
+if [ "$color_prompt" = yes ]; then
+	PS1='${debian_chroot:+($debian_chroot)}'$GREEN'\u@\h'$NORM':'$BLUE'\w'$NORM'$(__git_ps1 " (%s)")\n'$WHITE'\$ '$NORM''
+#	trap 'echo -ne "\e[0m"' DEBUG # for closing the colored input prompt
+fi
+unset color_prompt force_color_prompt
+
 # print shell title: last 20 characters of $PWD
 export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
+
+
+
 
 # git prompt
 #GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
@@ -154,3 +148,6 @@ export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
 #GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0
 #GIT_PROMPT_SHOW_UNTRACKED_FILES=no
 #source $REALPWD/bash-git-prompt/gitprompt.sh
+
+
+
