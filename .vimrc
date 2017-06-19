@@ -154,7 +154,7 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 colorscheme desert
 
 " clang-format
-let g:clang_format#command = "clang-format-3.8"
+let g:clang_format#command = "clang-format-5.0"
 "let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
