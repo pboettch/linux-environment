@@ -11,6 +11,10 @@
   next_tab = <Shift>Right
   prev_tab = <Shift>Left
   reset_clear = <Primary><Shift>k
+  resize_down = <Primary><Super>Down
+  resize_left = <Primary><Super>Left
+  resize_right = <Primary><Super>Right
+  resize_up = <Primary><Super>Up
 [layouts]
   [[default]]
     [[[child1]]]
