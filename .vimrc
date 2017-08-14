@@ -128,7 +128,7 @@ endif " has("autocmd")
 
 func GitGrep(...)
    let save = &grepprg
-   set grepprg=git\ grep\ -n\ $*
+   set grepprg=git\ grep\ -n\ --recurse-submodules\ $*
    let s = 'grep'
    for i in a:000
        let s = s . ' ' . i
