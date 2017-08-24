@@ -168,4 +168,8 @@ autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 "let g:HiCursorWords_style='term=reverse cterm=reverse gui=reverse'
 let g:HiCursorWords_linkStyle='VisualNOS'
 
+" netrw
+let g:netrw_sort_by='name'
+let g:netrw_sort_sequence='[\/]$' " directories first
+
 execute pathogen#infect()
