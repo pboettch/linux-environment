@@ -106,8 +106,10 @@ map <F6> :cp<CR>
 map <F7> :cn<CR>
 
 map tn :tabnew<SPACE>
+
 " open pwd of current buffer
 map td :tabnew %:p:h<CR>
+map tD :tabnew %:p:h/
 
 let c_space_errors=1
 
