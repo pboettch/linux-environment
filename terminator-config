@@ -1,6 +1,8 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   geometry_hinting = True
+  title_font = Sans 8
+  title_use_system_font = False
 [keybindings]
   go_down = <Super>Down
   go_left = <Super>Left
