@@ -61,13 +61,17 @@ set showmatch		" Show matching brackets.
 set autowrite		" Automatically save before commands like :next and :make
 
 " Removes trailing spaces
-command! TrimWhiteSpace :%s/\s\+$//e
+fun! TrimWhiteSpace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
 "set list listchars=trail:.,extends:>
-autocmd FileWritePre   * :TrimWhiteSpace
-autocmd FileAppendPre  * :TrimWhiteSpace
-autocmd FilterWritePre * :TrimWhiteSpace
-autocmd BufWritePre    * :TrimWhiteSpace
+autocmd FileWritePre   * :call TrimWhiteSpace()
+autocmd FileAppendPre  * :call TrimWhiteSpace()
+autocmd FilterWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre    * :call TrimWhiteSpace()
 
 " Now we set some defaults for the editor
 set noexpandtab
