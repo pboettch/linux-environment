@@ -3,7 +3,7 @@
 if [ -f build.ninja ]
 then
 	echo "build.ninja detected running ninja instead"
-	/usr/bin/ninja $@
+	/usr/bin/ninja "$@"
 else
-	/usr/bin/make $@
+	/usr/bin/make "$@"
 fi
