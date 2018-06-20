@@ -34,3 +34,6 @@
 [submodule "dot.vim/bundle/vim-json"]
 	path = dot.vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "dot.vim/bundle/vim-python-pep8-indent"]
+	path = dot.vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
