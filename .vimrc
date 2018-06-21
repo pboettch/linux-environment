@@ -178,4 +178,6 @@ let g:HiCursorWords_linkStyle='VisualNOS'
 let g:netrw_sort_by='name'
 let g:netrw_sort_sequence='[\/]$' " directories first
 
+" json
+let g:vim_json_syntax_conceal = 0
 execute pathogen#infect()
