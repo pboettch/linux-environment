@@ -37,3 +37,6 @@
 [submodule "dot.vim/bundle/vim-python-pep8-indent"]
 	path = dot.vim/bundle/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule "dot.vim/bundle/vim-bitbake"]
+	path = dot.vim/bundle/vim-bitbake
+	url = https://github.com/kergoth/vim-bitbake.git
