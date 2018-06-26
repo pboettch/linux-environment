@@ -1,5 +1,10 @@
 #!/bin/bash
 
+PLASMA_DECORATION=12
+#DEBUG=echo
+DEBUG=
+
+
 X=xdotool
 
 DESKTOP=$($X get_desktop)
@@ -15,9 +20,10 @@ GITS=($($X search --desktop $DESKTOP 'git'))
 POS=0
 
 # 1/4 for the terminal
-TERMWIDTH=$(($WIDTH/4))
-GITWIDTH=$(($WIDTH/4))
+TERMWIDTH=$(($WIDTH/10 * 3 - $PLASMA_DECORATION))
+GITWIDTH=$(($WIDTH/4 - $PLASMA_DECORATION))
 
+VIMCOLSMIN=2
 VIMCOLSMAX=3
 VIMWIDTH=$(($WIDTH - $TERMWIDTH))
 
@@ -25,46 +31,46 @@ VIMWIDTH=$(($WIDTH - $TERMWIDTH))
 if [ ${#GITS[@]} -gt 0 ]
 then
 	VIMCOLSMAX=$((VIMCOLSMAX - 1))
+	VIMCOLSMIN=$((VIMCOLSMIN - 1))
 	VIMWIDTH=$((VIMWIDTH - $GITWIDTH))
 fi
 
 # effective vim columns
 VIMCOLS=${#VIMS[@]}
-if [ $VIMCOLS -lt 2 ]
+if [ $VIMCOLS -lt $VIMCOLSMIN ]
 then
-	VIMCOLS=$VIMCOLSMAX
+	VIMCOLS=$VIMCOLSMIN
 fi
 if [ $VIMCOLS -gt $VIMCOLSMAX ]
 then
 	VIMCOLS=$VIMCOLSMAX
 fi
-VIMWIDTH=$((VIMWIDTH / $VIMCOLS))
+VIMWIDTH=$((VIMWIDTH / $VIMCOLS - $PLASMA_DECORATION))
 
 # align terminals
 for W in ${TERMS[@]}
 do
-	$X windowsize $W $TERMWIDTH $HEIGHT
-	$X windowmove $W $POS 55
-	POS=$((POS + $TERMWIDTH))
+	$DEBUG $X windowsize $W $TERMWIDTH $HEIGHT
+	$DEBUG $X windowmove $W $POS 55
+	POS=$((POS + $TERMWIDTH + $PLASMA_DECORATION))
 done
 
 # align vims
 VIMCOUNT=0
 for W in ${VIMS[@]}
 do
-	$X windowsize $W $VIMWIDTH $HEIGHT
-	$X windowmove $W $POS 55
+	$DEBUG $X windowsize $W $VIMWIDTH $HEIGHT
+	$DEBUG $X windowmove $W $POS 55
 	VIMCOUNT=$(($VIMCOUNT + 1))
 	if [ $VIMCOUNT -lt $VIMCOLSMAX ]
 	then
-		POS=$((POS + $VIMWIDTH))
+		POS=$((POS + $VIMWIDTH + $PLASMA_DECORATION))
 	fi
 done
-POS=$(($POS + $VIMWIDTH))
 
 # align gits
 for W in ${GITS[@]}
 do
-	$X windowsize $W $GITWIDTH $HEIGHT
-	$X windowmove $W $POS 55
+	$DEBUG $X windowsize $W $GITWIDTH $HEIGHT
+	$DEBUG $X windowmove $W $POS 55
 done
