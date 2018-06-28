@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PLASMA_DECORATION=12
+PLASMA_TASKBAR=70
 #DEBUG=echo
 DEBUG=
 
@@ -51,7 +52,7 @@ VIMWIDTH=$((VIMWIDTH / $VIMCOLS - $PLASMA_DECORATION))
 for W in ${TERMS[@]}
 do
 	$DEBUG $X windowsize $W $TERMWIDTH $HEIGHT
-	$DEBUG $X windowmove $W $POS 55
+	$DEBUG $X windowmove $W $POS $PLASMA_TASKBAR
 	POS=$((POS + $TERMWIDTH + $PLASMA_DECORATION))
 done
 
@@ -60,17 +61,19 @@ VIMCOUNT=0
 for W in ${VIMS[@]}
 do
 	$DEBUG $X windowsize $W $VIMWIDTH $HEIGHT
-	$DEBUG $X windowmove $W $POS 55
-	VIMCOUNT=$(($VIMCOUNT + 1))
-	if [ $VIMCOUNT -lt $VIMCOLSMAX ]
+	$DEBUG $X windowmove $W $POS $PLASMA_TASKBAR
+	VIMCOUNT=$((VIMCOUNT + 1))
+	if [ $VIMCOUNT -lt $VIMCOLSMAX ] # overlapped everything >= $VIMCOLSMAX
 	then
 		POS=$((POS + $VIMWIDTH + $PLASMA_DECORATION))
 	fi
 done
 
-# align gits
+GITPOS=$((WIDTH-$GITWIDTH))
+
+# align gits (overlapped)
 for W in ${GITS[@]}
 do
 	$DEBUG $X windowsize $W $GITWIDTH $HEIGHT
-	$DEBUG $X windowmove $W $POS 55
+	$DEBUG $X windowmove $W $GITPOS $PLASMA_TASKBAR
 done
