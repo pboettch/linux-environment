@@ -1,22 +1,34 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   geometry_hinting = True
-  title_font = Sans 8
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
   title_use_system_font = False
+  title_font = Sans 8
 [keybindings]
+  go_up = <Super>Up
   go_down = <Super>Down
   go_left = <Super>Left
   go_right = <Super>Right
-  go_up = <Super>Up
-  move_tab_left = <Primary><Shift>Left
-  move_tab_right = <Primary><Shift>Right
-  next_tab = <Shift>Right
-  prev_tab = <Shift>Left
-  reset_clear = <Primary><Shift>k
+  resize_up = <Primary><Super>Up
   resize_down = <Primary><Super>Down
   resize_left = <Primary><Super>Left
   resize_right = <Primary><Super>Right
-  resize_up = <Primary><Super>Up
+  move_tab_right = <Primary><Shift>Right
+  move_tab_left = <Primary><Shift>Left
+  next_tab = <Shift>Right
+  prev_tab = <Shift>Left
+  reset_clear = <Primary><Shift>k
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_color = "#282828"
+    cursor_color = "#aaaaaa"
+    font = DejaVu Sans Mono Bold 10
+    foreground_color = "#ebdbb2"
+    scrollback_lines = 20000
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -26,14 +38,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    allow_bold = False
-    background_color = "#282828"
-    copy_on_selection = True
-    cursor_color = "#aaaaaa"
-    font = DejaVu Sans Mono Bold 10
-    foreground_color = "#ebdbb2"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_lines = 20000
-    use_system_font = False
