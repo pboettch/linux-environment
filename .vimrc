@@ -153,6 +153,9 @@ endf
 " grep
 map <F4> :call GitGrepWord()<Bar> cw<CR>
 
+map <F3> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+
+
 " remove Print-button
 :aunmenu ToolBar.Print
 " remove help-button, it's too big
