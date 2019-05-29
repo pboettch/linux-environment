@@ -160,7 +160,7 @@ map <F4> :call GitGrepWord()<Bar> cw<CR>
 colorscheme desert
 
 " clang-format
-let g:clang_format#command = "clang-format-7"
+let g:clang_format#command = "clang-format-8"
 "let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
@@ -180,4 +180,5 @@ let g:netrw_sort_sequence='[\/]$' " directories first
 
 " json
 let g:vim_json_syntax_conceal = 0
+
 execute pathogen#infect()
