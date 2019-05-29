@@ -105,7 +105,7 @@ noremap <silent> <C-S-Right> :exe "silent! tabmove " . (tabpagenr() + 1)<CR>
 let &errorformat="%f:%l: %t%*[^:]:%m," . &errorformat
 let &errorformat="%f:%l:%c: %t%*[^:]:%m," . &errorformat
 let errormarker_warningtypes = "wW"
-map <F5> :tabfirst<CR>:make<CR>:cw<CR>
+map <F5> :tabfirst<CR>:make -j1<CR>:cw<CR>
 map <F6> :cp<CR>
 map <F7> :cn<CR>
 
