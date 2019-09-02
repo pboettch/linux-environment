@@ -74,18 +74,12 @@ autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
 
 " Now we set some defaults for the editor
-set noexpandtab
 set nocopyindent
 set nopreserveindent
 set nosmartindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-
-set cindent
-set cinoptions=:0,l1,g0,N-s,t0,(0,U0,i0,u0
-
-set smarttab
 
 set nowrap
 
