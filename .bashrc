@@ -114,11 +114,6 @@ if [ -e /usr/bin/gvim ]; then
     alias vi=gvim
 fi
 
-if [[ ! $TERM =~ "xterm" ]]
-then
-	setterm --blength 0
-fi
-
 REALPWD=$(dirname $(realpath ${BASH_SOURCE[0]}))
 
 GREEN='\[\033[32m\]'
