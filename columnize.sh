@@ -1,10 +1,9 @@
 #!/bin/bash
 
 PLASMA_DECORATION=12
-PLASMA_TASKBAR=70
-#DEBUG=echo
+PLASMA_TASKBAR=50
 DEBUG=
-
+#DEBUG=echo
 
 X=xdotool
 
@@ -16,8 +15,8 @@ HEIGHT=$($X getdisplaygeometry | awk '{ print $2; }')
 # get terminals
 TERMS=($($X search --desktop $DESKTOP 'term'))
 
-VIMS=($($X search --desktop $DESKTOP 'vim'))
-GITS=($($X search --desktop $DESKTOP 'git'))
+VIMS=($($X search --desktop $DESKTOP 'GVIM$'))
+GITS=($($X search --desktop $DESKTOP 'gitk|Git Gui'))
 
 OTHERS=(${VIMS[@]} ${GITS[@]})
 
@@ -48,6 +47,7 @@ OTHERS_WIDTH=$((OTHERS_WIDTH / $OTHERS_COLS - $PLASMA_DECORATION))
 # align terminals
 for W in ${TERMS[@]}
 do
+	$DEBUG echo "align term $W"
 	$DEBUG $X windowsize $W $TERMWIDTH $HEIGHT
 	$DEBUG $X windowmove $W $POS $PLASMA_TASKBAR
 	POS=$((POS + $TERMWIDTH + $PLASMA_DECORATION))
@@ -57,6 +57,7 @@ done
 OTHERS_COUNT=0
 for W in ${OTHERS[@]}
 do
+	$DEBUG echo "align others $W"
 	$DEBUG $X windowsize $W $OTHERS_WIDTH $HEIGHT
 	$DEBUG $X windowmove $W $POS $PLASMA_TASKBAR
 	OTHERS_COUNT=$((OTHERS_COUNT + 1))
