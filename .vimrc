@@ -157,7 +157,7 @@ map <F3> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git .
 colorscheme desert
 
 " clang-format
-let g:clang_format#command = "clang-format-11"
+let g:clang_format#command = "clang-format-17"
 "let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp,objc map <buffer> = <Plug>(operator-clang-format)
 
