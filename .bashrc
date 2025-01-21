@@ -132,9 +132,6 @@ unset color_prompt force_color_prompt
 # print shell title: last 20 characters of $PWD
 export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
 
-
-
-
 # git prompt
 #GIT_PROMPT_START='${debian_chroot:+($debian_chroot)}\u@\h:\w'    # uncomment for custom prompt start sequence
 #GIT_PROMPT_END='\n\$ '
@@ -144,5 +141,9 @@ export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
 #GIT_PROMPT_SHOW_UNTRACKED_FILES=no
 #source $REALPWD/bash-git-prompt/gitprompt.sh
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-
+export GVIM_ENABLE_WAYLAND=true

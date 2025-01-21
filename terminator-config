@@ -10,15 +10,12 @@
   next_tab = <Shift>Right
   prev_tab = <Shift>Left
   reset_clear = <Primary><Shift>k
-  broadcast_off = <Alt>q
-  broadcast_group = <Alt>g
-  broadcast_all = <Alt>a
+  preferences_keybindings = <Primary><Shift>j
 [profiles]
   [[default]]
     background_color = "#282828"
-    cursor_color = "#aaaaaa"
     foreground_color = "#ebdbb2"
-    scrollback_lines = 10000
+    scrollback_lines = 99999
 [layouts]
   [[default]]
     [[[window0]]]
