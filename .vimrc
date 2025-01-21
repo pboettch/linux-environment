@@ -180,5 +180,3 @@ let g:vim_json_syntax_conceal = 0
 
 " cmake
 let g:cmake_indent_align_command_arguments = 1
-
-execute pathogen#infect()
