@@ -37,3 +37,6 @@
 [submodule "dot.vim/bundle/vim-bitbake"]
 	path = dot.vim/pack/default/start/vim-bitbake
 	url = https://github.com/kergoth/vim-bitbake.git
+[submodule "dot.vim/pack/default/start/HiCursorWords"]
+	path = dot.vim/pack/default/start/HiCursorWords
+	url = https://github.com/pboettch/vim-highlight-cursor-words.git

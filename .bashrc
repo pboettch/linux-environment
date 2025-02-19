@@ -142,8 +142,8 @@ export PROMPT_COMMAND='echo -en "\033]0; ${PWD:${#PWD}<20?0:-20} \a"'
 #source $REALPWD/bash-git-prompt/gitprompt.sh
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 export GVIM_ENABLE_WAYLAND=true

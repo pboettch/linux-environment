@@ -1,0 +1,107 @@
+set et
+set ts=4
+
+set smartindent&
+set autoindent&
+set cindent&
+set smartindent&
+set indentexpr=GrooyvGetIndent(v:lnum)
+
+if exists("b:did_indent")
+  finish
+endif
+let b:did_indent = 1
+
+let s:keepcpo= &cpo
+set cpo&vim
+
+fun! GrooyvGetIndent(lnum)
+
+  " Search backwards for the previous non-empty line.
+  let plnum = prevnonblank(v:lnum - 1)
+
+  if plnum == 0
+    " This is the first non-empty line, use zero indent.
+    return 0
+  endif
+
+  " If the previous line is inside parenthesis, use the indent of the starting
+  " line.
+  " Trick: use the non-existing "dummy" variable to break out of the loop when
+  " going too far back.
+  call cursor(plnum, 1)
+  let parlnum = searchpair('(\|{\|\[', '', ')\|}\|\]', 'nbW',
+	  \ "line('.') < " . (plnum - s:maxoff) . " ? dummy :"
+	  \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+	  \ . " =~ '\\(Comment\\|Todo\\|String\\)$'")
+  if parlnum > 0
+    let plindent = indent(parlnum)
+    let plnumstart = parlnum
+  else
+    let plindent = indent(plnum)
+    let plnumstart = plnum
+  endif
+
+  " When inside parenthesis: If at the first line below the parenthesis add
+  " two 'shiftwidth', otherwise same as previous line.
+  " i = (a
+  "       + b
+  "       + c)
+  call cursor(a:lnum, 1)
+  let p = searchpair('(\|{\|\[', '', ')\|}\|\]', 'bW',
+	  \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+	  \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+	  \ . " =~ '\\(Comment\\|Todo\\|String\\)$'")
+  if p > 0
+    if p == plnum
+      " When the start is inside parenthesis, only indent one 'shiftwidth'.
+      let pp = searchpair('(\|{\|\[', '', ')\|}\|\]', 'bW',
+	  \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+	  \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+	  \ . " =~ '\\(Comment\\|Todo\\|String\\)$'")
+      if pp > 0
+		return indent(plnum) + (exists("g:pyindent_nested_paren") ? eval(g:pyindent_nested_paren) : shiftwidth())
+      endif
+      return indent(plnum) + (exists("g:pyindent_open_paren") ? eval(g:pyindent_open_paren) : (shiftwidth() * 2))
+    endif
+    if plnumstart == p
+      return indent(plnum)
+    endif
+    return plindent
+  endif
+
+
+  "
+  "
+  "
+  "  let this_line = getline(a:lnum)
+  "
+  "  " Find a non-blank line above the current line.
+  "  let lnum = a:lnum
+  "  let lnum = prevnonblank(lnum - 1)
+  "
+  "  let plnumrevious_line = getline(lnum)
+  "
+  "  " Hit the start of the file, use zero indent.
+  "  if lnum == 0
+  "    return 0
+  "  endif
+  "
+  "  let ind = indent(lnum)
+  "
+  "  " Add
+  "  " if previous_line =~ "[\[{\(]*"
+  "  " let ind = ind + shiftwidth()
+  "  if previous_line =~? ",\s*$"
+  "  	let ind = ind + shiftwidth()
+  "
+  "
+  "
+  "  " Remove
+  "  " let ind = ind + shiftwidth()
+  "
+  return 1
+endfun
+
+let &cpo = s:keepcpo
+unlet s:keepcpo
